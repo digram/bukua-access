@@ -22,7 +22,7 @@ A Laravel package for integrating with Bukua Edtech API services, providing easy
 ```env
 BUKUA_ACCESS_CLIENT_ID=your-client-id
 BUKUA_ACCESS_CLIENT_SECRET=your-client-secret
-BUKUA_BASE_URL=https://bukua-core.apptempest.com/
+BUKUA_BASE_URL="https://bukua-core.apptempest.com/"
 ```
 
 ### Installation

@@ -1,14 +1,14 @@
 <?php
 
-namespace BukuaAccess\Controllers;
+namespace BukuaAccess\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class BukuaAccessFacade extends Facade
+class BukuaAccess extends Facade
 {
 
     protected static function getFacadeAccessor()
     {
-        return 'bukua_access';
+        return 'bukuaaccess';
     }
 }

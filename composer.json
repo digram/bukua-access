@@ -35,7 +35,10 @@
             "providers": [
                 "BukuaAccess\\Providers\\BukuaAccessServiceProvider",
                 "BukuaAccess\\Providers\\BukuaAccessEventServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "BukuaAccess": "BukuaAccess\\Facades\\BukuaAccess"
+            }
         }
     }
 }

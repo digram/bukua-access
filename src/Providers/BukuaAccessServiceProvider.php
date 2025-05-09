@@ -15,7 +15,7 @@ class BukuaAccessServiceProvider extends ServiceProvider
     public function register()
     {
         // register BukuaAccess facade
-        $this->app->singleton('bukua_access', function ($app) {
+        $this->app->singleton('bukuaaccess', function ($app) {
             return new BukuaAccessController();
         });
     }
