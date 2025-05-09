@@ -6,7 +6,6 @@ A Laravel package for integrating with Bukua Edtech API services, providing easy
 
 - Authentication with Bukua API using client credentials
 - Simple methods to fetch paginated schools data
-- Built-in exception handling
 
 ## Prerequisites  
 
