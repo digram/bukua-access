@@ -32,33 +32,37 @@ class BukuaAccessController extends Controller
 
     private function makeAuthenticatedRequest(string $endpoint, array $queryParams = [])
     {
-        $token = $this->getToken();
+        $maxRetries = 1; // only retry once after 401
+        $attempt = 0;
 
-        if (!$token) {
-            throw new \RuntimeException('Unable to retrieve access token');
-        }
+        while ($attempt <= $maxRetries) {
+            $token = $this->getToken();
 
-        try {
-            return Http::withToken($token)
-                ->get($this->baseUrl . $endpoint, $queryParams)
-                ->throw()
-                ->json();
+            if (!$token) {
+                throw new \RuntimeException('Unable to retrieve access token');
+            }
 
-            // catch token expired exception
-        } catch (RequestException $e) {
-            if ($e->response->status() === 401) {
-                Cache::forget($this->tokenCacheKey);
-                $token = $this->getToken();
-                if (!$token) {
-                    throw new \RuntimeException('Unable to retrieve access token after retry');
-                }
+            try {
                 return Http::withToken($token)
                     ->get($this->baseUrl . $endpoint, $queryParams)
                     ->throw()
                     ->json();
+            } catch (RequestException $e) {
+                if ($e->response && $e->response->status() === 401 && $attempt < $maxRetries) {
+                    Cache::forget($this->tokenCacheKey);
+                    $attempt++;
+                    continue;
+                }
+
+                throw new \RuntimeException(
+                    "Failed to fetch data from {$endpoint}: " . $e->getMessage(),
+                    $e->getCode(),
+                    $e
+                );
             }
-            throw new \RuntimeException("Failed to fetch data from {$endpoint}", 0, $e);
         }
+
+        throw new \RuntimeException('Unable to authenticate after retry');
     }
 
     public function counties(int $page, int $per_page)
