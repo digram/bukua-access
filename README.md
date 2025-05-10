@@ -50,11 +50,11 @@ Get a paginated list of counties:
 - `$per_page`: Number of items per page
 
 ```php
-use BukuaAccess;
+use BukuaAccess\Facades\BukuaAccess;
 
 try {
     $counties = BukuaAccess::counties(page: 1, per_page: 10);
-    return response()->json($counties);
+    dd($counties);
 } catch (\Exception $e) {
     // Handle error
 }
@@ -69,11 +69,11 @@ Get a paginated list of subjects:
 - `$per_page`: Number of items per page
 
 ```php
-use BukuaAccess;
+use BukuaAccess\Facades\BukuaAccess;
 
 try {
     $subjects = BukuaAccess::subjects(page: 1, per_page: 10);
-    return response()->json($subjects);
+    dd($subjects);
 } catch (\Exception $e) {
     // Handle error
 }

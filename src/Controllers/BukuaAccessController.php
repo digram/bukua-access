@@ -67,21 +67,17 @@ class BukuaAccessController extends Controller
 
     public function counties(int $page, int $per_page)
     {
-        $data = $this->makeAuthenticatedRequest('api/v1/counties', [
+        return $this->makeAuthenticatedRequest('api/v1/counties', [
             'page' => $page,
             'per_page' => $per_page,
         ]);
-
-        return response()->json($data);
     }
 
     public function subjects(int $page, int $per_page)
     {
-        $data = $this->makeAuthenticatedRequest('api/v1/subjects', [
+        return $this->makeAuthenticatedRequest('api/v1/subjects', [
             'page' => $page,
             'per_page' => $per_page,
         ]);
-
-        return response()->json($data);
     }
 }
