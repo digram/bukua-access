@@ -115,3 +115,33 @@ try {
     // Handle error
 }
 ```
+
+### Schools with Profiles
+
+Get a paginated list of schools with profiles such as mission statement, fee structure, logo etc:
+
+```php
+use BukuaAccess\Facades\BukuaAccess;
+
+try {
+    $schoolsWithProfiles = BukuaAccess::schoolsWithProfiles(page: 1, per_page: 100);
+    dd($schoolsWithProfiles);
+} catch (\Exception $e) {
+    // Handle error
+}
+```
+
+### Schools with Departments
+
+Get a paginated list of schools with departments:
+
+```php
+use BukuaAccess\Facades\BukuaAccess;
+
+try {
+    $schoolsWithDepartments = BukuaAccess::schoolsWithDepartments(page: 1, per_page: 100);
+    dd($schoolsWithDepartments);
+} catch (\Exception $e) {
+    // Handle error
+}
+```

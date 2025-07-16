@@ -27,4 +27,20 @@ trait Schools
             'per_page' => $per_page,
         ]);
     }
+
+    public function schoolsWithProfiles(int $page, int $per_page)
+    {
+        return $this->makeAuthenticatedRequest('api/v1/schools/profiles', [
+            'page' => $page,
+            'per_page' => $per_page,
+        ]);
+    }
+
+    public function schoolsWithDepartments(int $page, int $per_page)
+    {
+        return $this->makeAuthenticatedRequest('api/v1/schools/departments', [
+            'page' => $page,
+            'per_page' => $per_page,
+        ]);
+    }
 }
