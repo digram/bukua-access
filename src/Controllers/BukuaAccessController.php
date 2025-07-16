@@ -4,10 +4,16 @@ namespace BukuaAccess\Controllers;
 
 use Illuminate\Routing\Controller;
 use BukuaAccess\Traits\AuthenticatesWithToken;
+use BukuaAccess\Traits\Counties;
+use BukuaAccess\Traits\Subjects;
+use BukuaAccess\Traits\Schools;
 
 class BukuaAccessController extends Controller
 {
     use AuthenticatesWithToken;
+    use Counties;
+    use Subjects;
+    use Schools;
 
     protected string $baseUrl;
     protected string $tokenCacheKey = 'bukua_access_token';
@@ -16,21 +22,5 @@ class BukuaAccessController extends Controller
     public function __construct()
     {
         $this->baseUrl = config('services.bukua_access.base_url');
-    }
-
-    public function counties(int $page, int $per_page)
-    {
-        return $this->makeAuthenticatedRequest('api/v1/counties', [
-            'page' => $page,
-            'per_page' => $per_page,
-        ]);
-    }
-
-    public function subjects(int $page, int $per_page)
-    {
-        return $this->makeAuthenticatedRequest('api/v1/subjects', [
-            'page' => $page,
-            'per_page' => $per_page,
-        ]);
     }
 }

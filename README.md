@@ -41,39 +41,76 @@ php artisan cache:clear
 
 ## Usage
 
-### Fetching Counties
+### Counties
 
 Get a paginated list of counties:
-
-**Parameters:**
-- `$page`: Page number (starting from 1)
-- `$per_page`: Number of items per page
 
 ```php
 use BukuaAccess\Facades\BukuaAccess;
 
 try {
-    $counties = BukuaAccess::counties(page: 1, per_page: 10);
+    $counties = BukuaAccess::counties(page: 1, per_page: 100);
     dd($counties);
 } catch (\Exception $e) {
     // Handle error
 }
 ```
 
-### Fetching Subjects
+### Subjects
 
 Get a paginated list of subjects:
-
-**Parameters:**
-- `$page`: Page number (starting from 1)
-- `$per_page`: Number of items per page
 
 ```php
 use BukuaAccess\Facades\BukuaAccess;
 
 try {
-    $subjects = BukuaAccess::subjects(page: 1, per_page: 10);
+    $subjects = BukuaAccess::subjects(page: 1, per_page: 100);
     dd($subjects);
+} catch (\Exception $e) {
+    // Handle error
+}
+```
+
+### Schools
+
+Get a paginated list of schools:
+
+```php
+use BukuaAccess\Facades\BukuaAccess;
+
+try {
+    $schools = BukuaAccess::schools(page: 1, per_page: 100);
+    dd($schools);
+} catch (\Exception $e) {
+    // Handle error
+}
+```
+
+### Schools with Subjects
+
+Get a paginated list of schools with subjects taught:
+
+```php
+use BukuaAccess\Facades\BukuaAccess;
+
+try {
+    $schoolsWithSubjects = BukuaAccess::schoolsWithSubjects(page: 1, per_page: 100);
+    dd($schoolsWithSubjects);
+} catch (\Exception $e) {
+    // Handle error
+}
+```
+
+### Schools with Subject Combinations
+
+Get a paginated list of schools with subjects combinations:
+
+```php
+use BukuaAccess\Facades\BukuaAccess;
+
+try {
+    $schoolsWithSubjectCombinations = BukuaAccess::schoolsWithSubjectCombinations(page: 1, per_page: 100);
+    dd($schoolsWithSubjectCombinations);
 } catch (\Exception $e) {
     // Handle error
 }
