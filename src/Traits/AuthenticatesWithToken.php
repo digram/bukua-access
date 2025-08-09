@@ -34,6 +34,7 @@ trait AuthenticatesWithToken
 
             try {
                 return Http::withToken($token)
+                    ->acceptJson()
                     ->get($this->baseUrl . $endpoint, $queryParams)
                     ->throw()
                     ->json();
