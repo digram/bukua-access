@@ -39,7 +39,7 @@ trait AuthenticatesWithToken
                     ->throw()
                     ->json();
             } catch (RequestException $e) {
-                if ($e->response && $e->response->status() === 401 && $attempt < $maxRetries) {
+                if ($e->response && in_array($e->response->status(), [401, 403]) && $attempt < $maxRetries) {
                     Cache::forget($this->tokenCacheKey);
                     $attempt++;
                     continue;
