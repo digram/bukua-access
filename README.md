@@ -10,7 +10,7 @@ A Laravel package for integrating with Bukua Edtech API services, providing easy
 ## Prerequisites  
 
 **Bukua Developer Account**:  
-   - Create a **Core Access Client** in the [Bukua Developer Dashboard](https://developer.bukuaplatform.com/).  
+   - Create a **Core Access App** in the [Bukua Developer Dashboard](https://bukua-core.apptempest.com/login).  
    - Obtain your:  
      - `client_id`  
      - `client_secret`  
