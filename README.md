@@ -62,7 +62,10 @@ use BukuaAccess\Facades\BukuaAccess;
 
 try {
     $counties = BukuaAccess::counties(page: 1, per_page: 100);
-    dd($counties);
+
+    echo "<pre>";
+    print_r($counties);
+    echo "</pre>";
 } catch (\Exception $e) {
     // Handle error
 }
@@ -77,7 +80,10 @@ use BukuaAccess\Facades\BukuaAccess;
 
 try {
     $subjects = BukuaAccess::subjects(page: 1, per_page: 100);
-    dd($subjects);
+
+    echo "<pre>";
+    print_r($subjects);
+    echo "</pre>";
 } catch (\Exception $e) {
     // Handle error
 }
@@ -92,7 +98,10 @@ use BukuaAccess\Facades\BukuaAccess;
 
 try {
     $schools = BukuaAccess::schools(page: 1, per_page: 100);
-    dd($schools);
+        
+    echo "<pre>";
+    print_r($schools);
+    echo "</pre>";
 } catch (\Exception $e) {
     // Handle error
 }
@@ -107,7 +116,10 @@ use BukuaAccess\Facades\BukuaAccess;
 
 try {
     $schoolsWithSubjects = BukuaAccess::schoolsWithSubjects(page: 1, per_page: 100);
-    dd($schoolsWithSubjects);
+    
+    echo "<pre>";
+    print_r($schoolsWithSubjects);
+    echo "</pre>";
 } catch (\Exception $e) {
     // Handle error
 }
@@ -122,7 +134,10 @@ use BukuaAccess\Facades\BukuaAccess;
 
 try {
     $schoolsWithSubjectCombinations = BukuaAccess::schoolsWithSubjectCombinations(page: 1, per_page: 100);
-    dd($schoolsWithSubjectCombinations);
+    
+    echo "<pre>";
+    print_r($schoolsWithSubjectCombinations);
+    echo "</pre>";
 } catch (\Exception $e) {
     // Handle error
 }
@@ -137,7 +152,10 @@ use BukuaAccess\Facades\BukuaAccess;
 
 try {
     $schoolsWithProfiles = BukuaAccess::schoolsWithProfiles(page: 1, per_page: 100);
-    dd($schoolsWithProfiles);
+    
+    echo "<pre>";
+    print_r($schoolsWithProfiles);
+    echo "</pre>";
 } catch (\Exception $e) {
     // Handle error
 }
@@ -152,7 +170,10 @@ use BukuaAccess\Facades\BukuaAccess;
 
 try {
     $schoolsWithDepartments = BukuaAccess::schoolsWithDepartments(page: 1, per_page: 100);
-    dd($schoolsWithDepartments);
+    
+    echo "<pre>";
+    print_r($schoolsWithDepartments);
+    echo "</pre>";
 } catch (\Exception $e) {
     // Handle error
 }
