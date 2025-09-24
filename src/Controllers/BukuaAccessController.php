@@ -21,6 +21,6 @@ class BukuaAccessController extends Controller
 
     public function __construct()
     {
-        $this->baseUrl = config('services.bukua_access.base_url');
+        $this->baseUrl = rtrim(config('services.bukua_access.base_url'), '/');
     }
 }

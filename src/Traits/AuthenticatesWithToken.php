@@ -11,7 +11,7 @@ trait AuthenticatesWithToken
     private function getToken(): ?string
     {
         return Cache::remember($this->tokenCacheKey, $this->tokenCacheTtl, function () {
-            $response = Http::asForm()->post($this->baseUrl . 'api/v1/bukua-auth/client-token', [
+            $response = Http::asForm()->post($this->baseUrl . '/api/v1/bukua-auth/client-token', [
                 'client_id'     => config('services.bukua_access.client_id'),
                 'client_secret' => config('services.bukua_access.client_secret'),
             ]);

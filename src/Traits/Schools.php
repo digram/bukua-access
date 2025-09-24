@@ -6,7 +6,7 @@ trait Schools
 {
     public function schools(int $page, int $per_page)
     {
-        return $this->makeAuthenticatedRequest('api/v1/schools', [
+        return $this->makeAuthenticatedRequest('/api/v1/schools', [
             'page' => $page,
             'per_page' => $per_page,
         ]);
@@ -14,7 +14,7 @@ trait Schools
 
     public function schoolsWithSubjects(int $page, int $per_page)
     {
-        return $this->makeAuthenticatedRequest('api/v1/schools/subjects', [
+        return $this->makeAuthenticatedRequest('/api/v1/schools/subjects', [
             'page' => $page,
             'per_page' => $per_page,
         ]);
@@ -22,7 +22,7 @@ trait Schools
 
     public function schoolsWithSubjectCombinations(int $page, int $per_page)
     {
-        return $this->makeAuthenticatedRequest('api/v1/schools/subject-combinations', [
+        return $this->makeAuthenticatedRequest('/api/v1/schools/subject-combinations', [
             'page' => $page,
             'per_page' => $per_page,
         ]);
@@ -30,7 +30,7 @@ trait Schools
 
     public function schoolsWithProfiles(int $page, int $per_page)
     {
-        return $this->makeAuthenticatedRequest('api/v1/schools/profiles', [
+        return $this->makeAuthenticatedRequest('/api/v1/schools/profiles', [
             'page' => $page,
             'per_page' => $per_page,
         ]);
@@ -38,7 +38,7 @@ trait Schools
 
     public function schoolsWithDepartments(int $page, int $per_page)
     {
-        return $this->makeAuthenticatedRequest('api/v1/schools/departments', [
+        return $this->makeAuthenticatedRequest('/api/v1/schools/departments', [
             'page' => $page,
             'per_page' => $per_page,
         ]);
