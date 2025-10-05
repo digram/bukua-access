@@ -57,6 +57,8 @@ composer require digram/bukua-access
 
 Get a paginated list of counties:
 
+App permission: `county_view`
+
 ```php
 use BukuaAccess\Facades\BukuaAccess;
 
@@ -74,6 +76,8 @@ try {
 ### Subjects
 
 Get a paginated list of subjects:
+
+App permission: `subject_view`
 
 ```php
 use BukuaAccess\Facades\BukuaAccess;
@@ -93,6 +97,8 @@ try {
 
 Get a paginated list of schools:
 
+App permission: `school_view`
+
 ```php
 use BukuaAccess\Facades\BukuaAccess;
 
@@ -110,6 +116,8 @@ try {
 ### Schools with Subjects
 
 Get a paginated list of schools with subjects taught:
+
+App permission: `school_view`
 
 ```php
 use BukuaAccess\Facades\BukuaAccess;
@@ -129,6 +137,8 @@ try {
 
 Get a paginated list of schools with subjects combinations:
 
+App permission: `school_view`
+
 ```php
 use BukuaAccess\Facades\BukuaAccess;
 
@@ -147,6 +157,8 @@ try {
 
 Get a paginated list of schools with profiles such as mission statement, fee structure, logo etc:
 
+App permission: `school_view`
+
 ```php
 use BukuaAccess\Facades\BukuaAccess;
 
@@ -164,6 +176,8 @@ try {
 ### Schools with Departments
 
 Get a paginated list of schools with departments:
+
+App permission: `school_view`
 
 ```php
 use BukuaAccess\Facades\BukuaAccess;
