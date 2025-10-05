@@ -177,7 +177,7 @@ try {
 
 Get a paginated list of schools with departments:
 
-App permission: `school_view`
+- App permission: `school_view`
 
 ```php
 use BukuaAccess\Facades\BukuaAccess;
