@@ -207,7 +207,7 @@ Updates basic school information for a specified school.
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `school_uid` | string | Yes | Unique identifier of the school (UUID format) |
-| `data` | array | Yes | Object containing the fields to update |
+| `data` | array | Yes | Array containing the fields to update |
 
 ##### Supported Data Fields
 
