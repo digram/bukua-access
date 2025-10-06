@@ -192,3 +192,55 @@ try {
     // Handle error
 }
 ```
+
+### Update Basic School Information
+
+Updates basic school information for a specified school.
+
+#### Request
+
+##### Required Permissions
+- **`school_info_update`** - Application must have this permission to access the endpoint
+
+##### Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `school_uid` | string | Yes | Unique identifier of the school (UUID format) |
+| `data` | array | Yes | Object containing the fields to update |
+
+##### Supported Data Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `clean_name` | string | Presentable, formatted school name |
+| `short_name` | string | Shortened version of the clean name (for space-constrained displays) |
+| `abbreviation` | string | School abbreviation or acronym |
+| `domain` | string | School website domain |
+| `national_code` | string | KNEC code |
+| `year_established` | integer | Year the school was established |
+
+#### Example Usage
+
+```php
+use BukuaAccess\Facades\BukuaAccess;
+
+try {
+    $response = BukuaAccess::updateSchoolInfo(
+        school_uid: 'efd8cccf-861f-4392-8e77-6a08b056e65e',
+        data: [
+            'domain' => 'jitahidischool',
+            'clean_name' => 'Jitahidi Senior School',
+            'year_established' => 2000,
+        ]
+    );
+    
+    echo "<pre>";
+    print_r($response);
+    echo "</pre>";
+    
+} catch (\Exception $e) {
+    // Handle error
+    echo "Error: " . $e->getMessage();
+}
+```
