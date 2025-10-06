@@ -20,8 +20,11 @@ trait AuthenticatesWithToken
         });
     }
 
-    private function makeAuthenticatedRequest(string $endpoint, array $queryParams = [])
-    {
+    private function makeAuthenticatedRequest(
+        string $endpoint,
+        array $data = [],
+        string $method = 'get',
+    ) {
         $maxRetries = 1; // only retry once after 401
         $attempt = 0;
 
@@ -35,7 +38,8 @@ trait AuthenticatesWithToken
             try {
                 return Http::withToken($token)
                     ->acceptJson()
-                    ->get($this->baseUrl . $endpoint, $queryParams)
+                    ->{$method}($this->baseUrl . $endpoint, $data)
+                    // ->get($this->baseUrl . $endpoint, $data)
                     ->throw()
                     ->json();
             } catch (RequestException $e) {

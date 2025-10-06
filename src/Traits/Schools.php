@@ -43,4 +43,16 @@ trait Schools
             'per_page' => $per_page,
         ]);
     }
+
+    public function updateSchoolInfo(string $school_uid, array $data)
+    {
+        return $this->makeAuthenticatedRequest(
+            endpoint: "/api/v1/school/update-school-info",
+            data: [
+                'school_uid' => $school_uid,
+                'data' => $data,
+            ],
+            method: 'put'
+        );
+    }
 }
