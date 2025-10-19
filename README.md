@@ -89,6 +89,24 @@ try {
 }
 ```
 
+### Academic Year / Term Dates
+
+Get the current academic year and term dates
+
+- App permission: None
+
+```php
+use BukuaAccess\Facades\BukuaAccess;
+
+try {
+    $academicYear = BukuaAccess::academicYear();
+
+    print_r($academicYear);
+} catch (\Exception $e) {
+    echo "Error: " . $e->getMessage();
+}
+```
+
 ### Schools
 
 Get a paginated list of schools:

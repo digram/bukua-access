@@ -7,6 +7,7 @@ use BukuaAccess\Traits\AuthenticatesWithToken;
 use BukuaAccess\Traits\Counties;
 use BukuaAccess\Traits\Subjects;
 use BukuaAccess\Traits\Schools;
+use BukuaAccess\Traits\General;
 
 class BukuaAccessController extends Controller
 {
@@ -14,6 +15,7 @@ class BukuaAccessController extends Controller
     use Counties;
     use Subjects;
     use Schools;
+    use General;
 
     protected string $baseUrl;
     protected string $tokenCacheKey = 'bukua_access_token';
