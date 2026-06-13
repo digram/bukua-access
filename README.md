@@ -7,7 +7,7 @@ A Laravel package for integrating with Bukua Edtech API services, providing easy
 - Authentication with Bukua API using client credentials
 - Simple methods to fetch paginated schools data
 
-## Prerequisites  
+## Prerequisites
 
 Before using this package, ensure you have:
 
@@ -35,7 +35,7 @@ BUKUA_BASE_URL="https://bukua-core.apptempest.com"  # Development
 
 ### Installation
 
-1. In your terminal, run 
+1. In your terminal, run
 
 ```bash
 composer require digram/bukua-access
@@ -57,7 +57,7 @@ composer require digram/bukua-access
 
 Get a paginated list of counties:
 
-- App permission: `county_view`
+- App permission: `county:view`
 
 ```php
 use BukuaAccess\Facades\BukuaAccess;
@@ -75,7 +75,7 @@ try {
 
 Get a paginated list of subjects:
 
-- App permission: `subject_view`
+- App permission: `subject:view`
 
 ```php
 use BukuaAccess\Facades\BukuaAccess;
@@ -84,6 +84,24 @@ try {
     $subjects = BukuaAccess::subjects(page: 1, per_page: 100);
 
     print_r($subjects);
+} catch (\Exception $e) {
+    echo "Error: " . $e->getMessage();
+}
+```
+
+### TVETs
+
+Get a paginated list of TVET institutions:
+
+- App permission: `tvet:view`
+
+```php
+use BukuaAccess\Facades\BukuaAccess;
+
+try {
+    $tvets = BukuaAccess::tvets(page: 1, per_page: 100);
+
+    print_r($tvets);
 } catch (\Exception $e) {
     echo "Error: " . $e->getMessage();
 }
@@ -111,14 +129,14 @@ try {
 
 Get a paginated list of schools:
 
-- App permission: `school_view`
+- App permission: `school:view`
 
 ```php
 use BukuaAccess\Facades\BukuaAccess;
 
 try {
     $schools = BukuaAccess::schools(page: 1, per_page: 100);
-        
+
     print_r($schools);
 } catch (\Exception $e) {
     echo "Error: " . $e->getMessage();
@@ -129,14 +147,14 @@ try {
 
 Get a paginated list of schools with subjects taught:
 
-- App permission: `school_view`
+- App permission: `school:view`
 
 ```php
 use BukuaAccess\Facades\BukuaAccess;
 
 try {
     $schoolsWithSubjects = BukuaAccess::schoolsWithSubjects(page: 1, per_page: 100);
-    
+
     print_r($schoolsWithSubjects);
 } catch (\Exception $e) {
     echo "Error: " . $e->getMessage();
@@ -147,14 +165,14 @@ try {
 
 Get a paginated list of schools with subjects combinations:
 
-- App permission: `school_view`
+- App permission: `school:view`
 
 ```php
 use BukuaAccess\Facades\BukuaAccess;
 
 try {
     $schoolsWithSubjectCombinations = BukuaAccess::schoolsWithSubjectCombinations(page: 1, per_page: 100);
-    
+
     print_r($schoolsWithSubjectCombinations);
 } catch (\Exception $e) {
     echo "Error: " . $e->getMessage();
@@ -165,14 +183,14 @@ try {
 
 Get a paginated list of schools with profiles such as mission statement, fee structure, logo etc:
 
-- App permission: `school_view`
+- App permission: `school:view`
 
 ```php
 use BukuaAccess\Facades\BukuaAccess;
 
 try {
     $schoolsWithProfiles = BukuaAccess::schoolsWithProfiles(page: 1, per_page: 100);
-    
+
     print_r($schoolsWithProfiles);
 } catch (\Exception $e) {
     echo "Error: " . $e->getMessage();
@@ -183,14 +201,14 @@ try {
 
 Get a paginated list of schools with departments:
 
-- App permission: `school_view`
+- App permission: `school:view`
 
 ```php
 use BukuaAccess\Facades\BukuaAccess;
 
 try {
     $schoolsWithDepartments = BukuaAccess::schoolsWithDepartments(page: 1, per_page: 100);
-    
+
     print_r($schoolsWithDepartments);
 } catch (\Exception $e) {
     echo "Error: " . $e->getMessage();
@@ -204,25 +222,26 @@ Updates basic school information for a specified school.
 #### Request
 
 ##### Required Permissions
-- **`school_info_update`** - Application must have this permission to access the endpoint
+
+- **`school_info:update`** - Application must have this permission to access the endpoint
 
 ##### Parameters
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `school_uid` | string | Yes | Unique identifier of the school (UUID format) |
-| `data` | array | Yes | Array containing the fields to update |
+| Parameter    | Type   | Required | Description                                   |
+| ------------ | ------ | -------- | --------------------------------------------- |
+| `school_uid` | string | Yes      | Unique identifier of the school (UUID format) |
+| `data`       | array  | Yes      | Array containing the fields to update         |
 
 ##### Supported Data Fields
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `clean_name` | string | Presentable, formatted school name |
-| `short_name` | string | Shortened version of the clean name (for space-constrained displays) |
-| `abbreviation` | string | School abbreviation or acronym |
-| `domain` | string | School website domain |
-| `national_code` | string | KNEC code |
-| `year_established` | integer | Year the school was established |
+| Field              | Type    | Description                                                          |
+| ------------------ | ------- | -------------------------------------------------------------------- |
+| `clean_name`       | string  | Presentable, formatted school name                                   |
+| `short_name`       | string  | Shortened version of the clean name (for space-constrained displays) |
+| `abbreviation`     | string  | School abbreviation or acronym                                       |
+| `domain`           | string  | School website domain                                                |
+| `national_code`    | string  | KNEC code                                                            |
+| `year_established` | integer | Year the school was established                                      |
 
 #### Example Usage
 
@@ -238,8 +257,8 @@ try {
             'year_established' => 2000,
         ]
     );
-    
-    print_r($response);    
+
+    print_r($response);
 } catch (\Exception $e) {
     echo "Error: " . $e->getMessage();
 }
